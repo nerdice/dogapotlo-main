@@ -1,15 +1,18 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BorrowingsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*Route::get('/', function () {
     return view('index');
 });*/
 
-Route::get('/', [BookController::class, 'index'])->middleware('auth')->name('index.index');
-Route::get('/{id}', [BookController::class, 'show'])->middleware('auth')->name('index.show');
+Route::get('/books', [BookController::class, 'index'])->middleware('auth')->name('index.index');
+Route::get('books/{id}', [BookController::class, 'show'])->middleware('auth')->name('index.show');
+Route::get('/borrowings', [BorrowingsController::class, 'index'])->name('borrowings.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
