@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/books', [BookController::class, 'index'])->middleware('auth')->name('index.index');
 Route::get('books/{id}', [BookController::class, 'show'])->middleware('auth')->name('index.show');
-Route::get('/borrowings', [BorrowingsController::class, 'index'])->name('borrowings.index');
+Route::get('/borrowings', [BorrowingsController::class, 'index'])->middleware([AdminMiddleware::class])->name('borrowings.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

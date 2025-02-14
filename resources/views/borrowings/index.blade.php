@@ -6,6 +6,21 @@
         <title>Document</title>
     </head>
     <body>
-        fmappfas
+        @foreach ($users as $u)
+            <ul>
+                <li>{{$u->name}}</li>
+                <li>{{$u->email}}</li>
+                <li>{{$u->role}}</li>
+                @foreach ($u->books as $b)
+                    <li>
+                        <ul>
+                            <li>{{$b->title}}</li>
+                            <li>{{$b->author}}</li>
+                            <li>{{$b->publication_year}}</li>
+                        </ul>
+                    </li>
+                @endforeach
+            </ul>
+        @endforeach
     </body>
 </html>
