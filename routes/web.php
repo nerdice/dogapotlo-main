@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::get('/', [BookController::class, 'index'])->middleware('auth')->name('index.index');
+Route::get('/{id}', [BookController::class, 'show'])->middleware('auth')->name('index.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

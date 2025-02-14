@@ -13,16 +13,13 @@
                 <ul>
                     <li>Author: {{$b->author}}</li>
                     <li>Publication year: {{$b->publication_year}}</li>
-                    <!--@if(auth()->check() && auth()->user()->role == 'admin')
-                        <form action="{{ route('foglalasok.show', $foglalas->id) }}" method="GET">
+                    @if(auth()->check() && auth()->user()->role == 'user')
+                        <form action="{{ route('index.show', $b->id) }}" method="GET">
                             @csrf
                             <button type="submit">Megnézem</button>
                         </form>
 
-                    @endif -->
-                    <form action="">
-                        <input type="submit" value="ok">
-                    </form>
+                    @endif
                     <br>
                 </ul>
             @endforeach
